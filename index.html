@@ -10,13 +10,15 @@
 
 <body>
   <h1>Calculadora de dias de trabalho/folga</h1>
-  <label for="date-input">Insira a data (dd/mm/aaaa): </label>
-  <input type="text" id="date-input" onkeyup="addSeparators(this)" /><br>
-  <button class="calcular" onclick="calculate()">Calcular</button>
-  <p id="output"></p>
-
-  <h2>Últimas 3 pesquisas:</h2>
-  <ul id="log"></ul>
+  <div class="flex">
+    <label for="date-input">Insira a data (dd/mm/aaaa): </label><br>
+    <span></span>
+    <input class="space" type="text" id="date-input" onkeyup="addSeparators(this)" /><br>
+    <button class="calcular" onclick="calculate()">Calcular</button>
+    <p id="output"></p>
+    <h2>Últimas 3 pesquisas:</h2>
+    <ul id="log"></ul>
+  </div>
 
   <script src="script.js"></script>
 </body>
