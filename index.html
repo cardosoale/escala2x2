@@ -1,136 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Calculadora de dias de trabalho/folga</title>
-    <style>
-        html{
-            max-width: 90vw;  
-            margin: auto;                     
-        }
-        h1{
-            margin-bottom: 100px;
-            text-align: center;
-        }
-      body {
-        font-family: monospace;
-        background-color: black;
-        color: white; 
-        height: 50vh;                            
-      }     
-      body label{       
-        font-size: 1.2em;
-        font-weight: bold;
-        margin-top: 100px;
-      }
-      input,
-      button {
-        background-color: black;
-        color: white;
-        border: none;
-        border-bottom: 1px solid white;
-        font-size: 1em;
-        font-weight: bold;
-        text-align: center; 
-        width: 100px;              
-      }
-      .calcular{
-        border: 1px solid white;
-        margin-top: 10px;
-      }
-      .calcular:hover{
-        background-color: white;
-        color: black;
-      }
-      input:focus,
-      button:focus {
-        outline: none;
-      }
-      h2{
-        font-size: 1.2em;
-        margin-top: 100px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Calculadora de dias de trabalho/folga</h1>
-    <label for="date-input">Insira a data (dd/mm/aaaa): </label>
-    <input type="text" id="date-input" onkeyup="addSeparators(this)" /><br>
-    <button class="calcular" onclick="calculate()">Calcular</button>
-    <p id="output"></p>
+<html lang="pt-br">
 
-    <h2>Últimas 3 pesquisas:</h2>
-    <ul id="log"></ul>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Calculadora de dias de trabalho/folga</title>
+</head>
 
-    <script>
-       let log = [];
+<body>
+  <h1>Calculadora de dias de trabalho/folga</h1>
+  <label for="date-input">Insira a data (dd/mm/aaaa): </label>
+  <input type="text" id="date-input" onkeyup="addSeparators(this)" /><br>
+  <button class="calcular" onclick="calculate()">Calcular</button>
+  <p id="output"></p>
 
-       function addSeparators(input) {
-         let value = input.value;
-         value = value.replace(/[^0-9]/g, '');
-         if (value.length > 2) {
-           value = value.substring(0, 2) + '/' + value.substring(2);
-         }
-         if (value.length > 5) {
-           value = value.substring(0, 5) + '/' + value.substring(5);
-         }
-         input.value = value;
-       }
+  <h2>Últimas 3 pesquisas:</h2>
+  <ul id="log"></ul>
 
-       function calculate() {
-          // Obtém a data inserida pelo usuário
-          let dateStr = document.getElementById('date-input').value;
+  <script src="script.js"></script>
+</body>
 
-          // Converte a data para um objeto Date
-          let [day, month, year] = dateStr.split('/');
-          let date = new Date(year, month - 1, day);
-
-          // Obtém o dia da semana da data inserida
-          let weekdays = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
-          let weekday = weekdays[date.getDay()];
-
-           // Calcula o número de dias entre a data inserida e a data atual
-           let startDate=new Date("2023-03-14");
-           startDate.setHours(0);
-           startDate.setMinutes(0);
-           startDate.setSeconds(0);
-           startDate.setMilliseconds(0);
-
-            const delta=Math.floor((date-startDate)/(1000*60*60*24));
-
-            const deltaMod=(delta+1)%4;
-
-            // Determina se é um dia de trabalho ou folga
-            let output;
-
-             if(deltaMod==3){
-                output=`${dateStr} ${weekday} Primeiro dia de trabalho`;
-             }else if(deltaMod==0){
-                output=`${dateStr} ${weekday} Segundo dia de trabalho`;
-             }else if(deltaMod==1){
-                output=`${dateStr} ${weekday} Primeiro dia de folga`;
-             }else{
-                output=`${dateStr} ${weekday} Segundo dia de folga`;
-             }
-
-             document.getElementById('output').innerHTML=output;
-
-              // Atualiza o log com a última pesquisa realizada
-              log.unshift(output);
-              if(log.length >3){
-                log.pop();
-              }
-              updateLog();
-       }
-
-       function updateLog(){
-             const ul=document.getElementById('log');
-             ul.innerHTML='';
-             for(let i=0;i<log.length;i++){
-                 const li=document.createElement('li');
-                 li.appendChild(document.createTextNode(log[i]));
-                 ul.appendChild(li);
-             }
-       }
-     </script>
-   </body>
- </html>
+</html>
