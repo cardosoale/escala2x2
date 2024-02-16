@@ -25,12 +25,7 @@ body {
 body label {
     font-size: 1.2em;
     font-weight: bold;
-    margin-top: 100px;
-}
-
-.space {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    line-height: 2em;
 }
 
 input,
