@@ -6,6 +6,7 @@
 
 :root {
     --primary-color: #0A1128;
+    --menu-color: #0a112859;
     --secondary-color: crimson;
     --white-color: #FFF;
     --light-gray-color: #EEE;
@@ -26,12 +27,12 @@ body {
 
 .menu {
     position: fixed;
+    background-color: var(--menu-color);
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
     z-index: 1;
-    border-bottom: 0.1rem solid var(--light-gray-color);
 }
 
 .menu-content {
@@ -58,6 +59,7 @@ body {
     padding: 2rem;
     font-size: 1.8rem;
     text-decoration: none;
+    text-shadow: 2rem 2rem 2rem var(--primary-color);
     color: var(--light-gray-color);
     position: relative;
 }
@@ -82,15 +84,22 @@ body {
     display: none;
 }
 
+/* 
 .menu-spacing {
     height: 6.5rem;
-}
+} */
 
 .main-content {
     max-width: 100%;
     height: 100vh;
     margin: 0 auto;
     padding: 10rem var(--gap);
+}
+
+.box-content {
+    width: 100rem;
+    height: 50rem;
+    background-color: var(--menu-color);
 }
 
 
@@ -115,22 +124,52 @@ body label {
 .home-image {
     background-image: url(../img/fiber-optics.jpg);
     background-size: cover;
-    background-position: left center;
+    background-position: center center;
     background-repeat: no-repeat;
-    color: white;
+}
+
+.index {
+    color: black;
+}
+
+.t2 {
+    background-color: black;
+}
+
+.t3 {
+    background-color: darkcyan;
+}
+
+.t4 {
+    background-color: darkslategrey;
 }
 
 
 input,
 button {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white-color);
     border: none;
-    border-bottom: 0.01rem solid white;
+    border-bottom: 0.01rem solid var(--white-color);
     font-size: 1.8rem;
     font-weight: bold;
     text-align: center;
     width: 15rem;
+}
+
+.t2 input,
+.t2 button {
+    background-color: black;
+}
+
+.t3 input,
+.t3 button {
+    background-color: darkcyan;
+}
+
+.t4 input,
+.t4 button {
+    background-color: darkslategrey;
 }
 
 button {
@@ -138,13 +177,13 @@ button {
 }
 
 .calculate {
-    border: 1px solid white;
+    border: 0.01rem solid var(--white-color);
     margin-top: 1rem;
     margin-bottom: 10rem;
 }
 
 .calculate:hover {
-    background-color: white;
+    background-color: var(--white-color);
     color: black;
 }
 
