@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0A1128;
+    --secondary-color: crimson;
+    --white-color: #FFF;
+    --light-gray-color: #EEE;
+    --gap: 3rem;
+}
+
+html {
+    font-size: 62.5%;
+
+}
+
+body {
+    font-family: monospace;
+    font-size: 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 0.1rem solid var(--light-gray-color);
+}
+
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.menu h1 {
+    font-size: 2.3rem;
+    color: var(--light-gray-color);
+    margin-left: 1.5rem;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 2rem;
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: var(--light-gray-color);
+    position: relative;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    width: 0;
+    height: 0.2rem;
+    background: var(--secondary-color);
+    transition: all 300ms ease-in-out;
+}
+
+.menu ul li a:hover::after {
+    width: 50%;
+    left: 25%;
+}
+
+.close-menu {
+    display: none;
+}
+
+.menu-spacing {
+    height: 6.5rem;
+}
+
+.main-content {
+    max-width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 10rem var(--gap);
+}
+
+
+.section {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+body label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.home-image {
+    background-image: url(../img/fiber-optics.jpg);
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+
+input,
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-bottom: 0.01rem solid white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    width: 15rem;
+}
+
+button {
+    padding: 2rem;
+}
+
+.calculate {
+    border: 1px solid white;
+    margin-top: 1rem;
+    margin-bottom: 10rem;
+}
+
+.calculate:hover {
+    background-color: white;
+    color: black;
+}
+
+input:focus,
+button:focus {
+    outline: none;
+}
+
+h2 {
+    font-size: 3rem;
+    padding: 5rem;
+}
+
+h3 {
+    margin-top: 10rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+@media (max-width: 80rem) {
+    .menu {
+        bottom: 0;
+        text-align: center;
+        display: none;
+    }
+
+    .menu-content {
+        height: 100vh;
+        background-color: var(--primary-color);
+    }
+
+    .menu-content,
+    .menu-content ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .close-menu-label::after {
+        content: '☰';
+        position: fixed;
+        z-index: 2;
+        top: 2rem;
+        right: 2rem;
+        background: var(--primary-color);
+        color: var(--white-color);
+        font-size: 3rem;
+        line-height: 3rem;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: 0.1rem solid var(--white-color);
+        text-align: center;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    .close-menu:checked~.menu {
+        display: block;
+    }
+
+    .close-menu:checked~.close-menu-label::after {
+        content: '×';
+        text-align: center;
+    }
+}

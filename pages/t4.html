@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>Calculadora de dias de trabalho/folga</title>
 </head>
 
-<body class="home-image">
+<body>
   <input id="close-menu" class="close-menu" type="checkbox" aria-label="Close menu" role="button">
   <label class="close-menu-label" for="close-menu" title="close menu"></label>
   <aside class="menu white-bg">
@@ -17,19 +17,25 @@
       <nav>
         <ul onclick="getElementById('close-menu').checked = false;">
           <li><a href="../index.html">Home</a></li>
-          <li><a href="pages/t1.html">Turma 1</a></li>
-          <li><a href="pages/t2.html">Turma 2</a></li>
-          <li><a href="pages/t3.html">Turma 3</a></li>
-          <li><a href="pages/t4.html">Turma 4</a></li>
+          <li><a href="t1.html">Turma 1</a></li>
+          <li><a href="t2.html">Turma 2</a></li>
+          <li><a href="t3.html">Turma 3</a></li>
+          <li><a href="t4.html">Turma 4</a></li>
         </ul>
       </nav>
     </div>
   </aside>
-  <div class="main-content">
-
+  <div class="flex section">
+    <h2>Escala Turma 4</h2>
+    <label for="date-input">Insira a data (dd/mm/aaaa): </label><br>
+    <input type="text" id="date-input" onkeyup="addSeparators(this)" /><br>
+    <button class="calculate" onclick="calculate()">Calcular</button>
+    <p id="output"></p>
+    <h3>Últimas 3 pesquisas:</h3>
+    <ul id="log"></ul>
   </div>
 
-  <script src="script.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 
 </html>
