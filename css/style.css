@@ -84,10 +84,6 @@ body {
     display: none;
 }
 
-/* 
-.menu-spacing {
-    height: 6.5rem;
-} */
 
 .main-content {
     max-width: 100%;
@@ -128,8 +124,13 @@ body label {
     background-repeat: no-repeat;
 }
 
-.index {
-    color: black;
+.index h2,
+.index h3 {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--primary-color);
+    font-size: 4rem;
+    text-align: center;
+    color: var(--white-color);
 }
 
 .t2 {
